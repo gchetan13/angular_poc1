@@ -1,0 +1,80 @@
+<div class="pages">
+  <form [formGroup]="proposedInsured" #proposedInsuredForm="ngForm">
+    <div [hidden]="proposedInsuredForm.submitted">
+      <label>
+        Prefix:
+        <select formControlName="prefix">
+          <option *ngFor="let prefix of prefixes" [value]="prefix">{{prefix}}</option>
+        </select>
+
+      </label>
+      <label>
+        First Name:*
+        <input type="text" formControlName="firstName">
+      
+      <div *ngIf="proposedInsured.controls['firstName'].invalid &&
+    (proposedInsured.controls['firstName'].dirty || proposedInsured.controls['firstName'].touched)" class="alert">
+        <div *ngIf="proposedInsured.controls['firstName'].errors.required">
+          First Name is required.
+        </div>
+      </div>
+    </label>
+      <label>
+        Middle Name:
+        <input type="text" formControlName="middleName">
+      </label>
+      <label>
+        Last Name:*
+        <input type="text" formControlName="lastName">
+      
+      <div *ngIf="proposedInsured.controls['lastName'].invalid &&
+    (proposedInsured.controls['lastName'].dirty || proposedInsured.controls['lastName'].touched)" class="alert">
+        <div *ngIf="proposedInsured.controls['lastName'].errors.required">
+          Last Name is required.
+        </div>
+      </div>
+    </label>
+      <label>
+        Permanent Address:*
+        <input type="text" formControlName="permanentAddress">
+      
+      <div *ngIf="proposedInsured.controls['permanentAddress'].invalid &&
+    (proposedInsured.controls['permanentAddress'].dirty || proposedInsured.controls['permanentAddress'].touched)"
+        class="alert">
+        <div *ngIf="proposedInsured.controls['permanentAddress'].errors.required">
+          Permanent Address is required.
+        </div>
+      </div>
+    </label>
+      <label>
+        Date Of Birth:*
+        <input type="text" formControlName="dateofBirth">
+        <div *ngIf="proposedInsured.controls['dateofBirth'].invalid &&
+      (proposedInsured.controls['dateofBirth'].dirty || proposedInsured.controls['dateofBirth'].touched)"
+          class="alert">
+          <div *ngIf="proposedInsured.controls['dateofBirth'].errors.required">
+            Date of birth is required.
+          </div>
+        </div>
+      </label>
+
+      <label>
+        Social Security Number:*
+        <input type="text" formControlName="ssn">
+        <div *ngIf="proposedInsured.controls['ssn'].invalid &&
+      (proposedInsured.controls['ssn'].dirty || proposedInsured.controls['ssn'].touched)" class="alert">
+          <div *ngIf="proposedInsured.controls['ssn'].errors.required">
+            SSN is required.
+          </div>
+        </div>
+      </label>
+      <button type="button" (click)="saveDetails()">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="proposedInsuredForm.invalid">invalid form</div>
+<div *ngIf="proposedInsuredForm.submitted">
+  <p>You have submitted Proposed Insured screen with values</p>
+  {{proposedInsured.value | json}}
+</div>

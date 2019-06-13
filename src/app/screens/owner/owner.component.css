@@ -1,0 +1,64 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+  }
+  
+  label {
+    display: block;
+    width: 25em;
+    margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 18px;
+  }
+  
+  input[type='text'] select{
+    height: 1em;
+    font-size: 1em;
+    padding-left: .4em;
+    margin-left: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block;
+  }
+  input[type='date']{
+    height: 1em;
+    font-size: 1em;
+    padding-left: .4em;
+    margin-left: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: inline-block;
+  }
+  .pages{
+    margin-top: 13px;
+    width: 1500%;
+    height: 96%;
+    /* margin: 10px auto 10px auto; */
+    background-color: #e6f7f8;
+    opacity: 0.9;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 4px;
+    padding-right: 10px;
+  }
+  .radioQue{
+    display: block;
+    width: 25em;
+    margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 18px; 
+  }
+  .alert{
+    margin-left: 196px;
+    width: 424px;
+    margin-top: -19px;
+    color: #a94442;
+  }

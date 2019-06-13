@@ -1,0 +1,53 @@
+<div class="pages">
+  <form [formGroup]="premium" #premiumForm="ngForm">
+    <div [hidden]="premiumForm.submitted">
+      <label>
+        Payor Details:
+      </label>
+      <label>
+        Premium Payor:*
+        <select formControlName="premium_payors">
+          <option *ngFor="let payor of premium_payors" [value]="payor">{{payor}}</option>
+        </select>
+        <div *ngIf="premium.controls['premium_payors'].invalid &&
+            (premium.controls['premium_payors'].dirty || premium.controls['premium_payors'].touched)" class="alert">
+          <div *ngIf="premium.controls['premium_payors'].errors.required">
+            Premium Payor is missing.
+          </div>
+        </div>
+      </label>
+      <label>
+        Payment Mode:*
+        <select formControlName="paymentMode">
+          <option *ngFor="let paymentMode of paymentModes" [value]="paymentMode">{{paymentMode}}</option>
+        </select>
+     <div *ngIf="premium.controls['paymentMode'].invalid &&
+        (premium.controls['paymentMode'].dirty || premium.controls['paymentMode'].touched)" class="alert">
+          <div *ngIf="premium.controls['paymentMode'].errors.required">
+            Payment Mode is missing.
+          </div>
+        </div>
+      </label>
+      <label>
+          Method of Premium Collection:* <br>
+       <div>   
+          <input id="wireTransfer" type="checkbox" value="1" name="wire-transfer"><label for="wireTransfer">Wire Transfer</label>
+        </div>
+        <div>
+          <input id="bankDraft" type="checkbox" value="2" name="bank-draft">
+          <label for="bankDraft"> Draft </label>
+        </div>
+        <div>
+          <input id="check" type="checkbox" value="3" name="check">
+          <label for="check">Check</label>
+        </div>
+      </label>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="premiumForm.invalid">invalid form</div>
+<div *ngIf="premiumForm.submitted">
+  <p>You have submitted getting started screen with values</p>
+  {{premium.value | json}}
+</div>

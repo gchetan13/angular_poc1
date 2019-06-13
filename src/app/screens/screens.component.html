@@ -1,0 +1,18 @@
+<div>
+<ul class="screens">
+<li *ngFor="let screen of screens"  (click)="OnSelectedScreen(screen)">{{screen.name}}</li>
+
+   <!-- <span (click)="OnSelectedScreen(screen)" class="badge">{{screen.name}}</span>  -->
+
+  
+</ul>
+</div>
+<div *ngIf = "selectedScreen">
+<div [ngSwitch] = "selectedScreen">
+<app-getting-started  *ngSwitchCase="'getting-started'" [selectedScreen]="selectedScreen" (PIotherThanOwn)="IsPIOtherThanOwn($event)"></app-getting-started>
+<app-proposed-insured *ngSwitchCase="'proposed-insured'" [selectedScreen]="selectedScreen" ></app-proposed-insured>
+<app-owner *ngSwitchCase="'owner'"></app-owner>
+<app-existing-applied *ngSwitchCase="'existing-applied'"></app-existing-applied>
+<app-premium *ngSwitchCase="'premium'"></app-premium>
+</div>
+</div>

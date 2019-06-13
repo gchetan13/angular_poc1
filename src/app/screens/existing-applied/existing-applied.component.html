@@ -1,0 +1,51 @@
+<div class="pages">
+  <form [formGroup]="existingOrApplied" #existingOrAppliedForm="ngForm">
+    <div [hidden]="existingOrAppliedForm.submitted">
+        <label class="radioQue">
+            Does the Proposed Insured have any existing or applied for life insurance or annuities with this or any other company?*
+            <br>
+            <input type="radio" name="a_InforceNAppliedfor" formControlName="a_InforceNAppliedfor" value="Yes">Yes
+            <input type="radio" name="a_InforceNAppliedfor" formControlName="a_InforceNAppliedfor" value="No">No
+            <div *ngIf="existingOrApplied.controls['a_InforceNAppliedfor'].invalid &&
+            (existingOrApplied.controls['a_InforceNAppliedfor'].dirty || existingOrApplied.controls['a_InforceNAppliedfor'].touched)"
+              class="alert">
+              <div *ngIf="existingOrApplied.controls['a_InforceNAppliedfor'].errors.required">
+                Answer to Proposed Insured have any existing or applied for life insurance or annuities is required.
+              </div>
+            </div>
+          </label>
+          <label class="radioQue">
+              Has the Proposed Insured been offered any fee,payment,or incentive in connection with the purchase of this insurance policy?*
+              <br>
+              <input type="radio" name="a_OffPaymtInd_PINS" formControlName="a_OffPaymtInd_PINS" value="Yes">Yes
+              <input type="radio" name="a_OffPaymtInd_PINS" formControlName="a_OffPaymtInd_PINS" value="No">No
+              <div *ngIf="existingOrApplied.controls['a_OffPaymtInd_PINS'].invalid &&
+              (existingOrApplied.controls['a_OffPaymtInd_PINS'].dirty || existingOrApplied.controls['a_OffPaymtInd_PINS'].touched)"
+                class="alert">
+                <div *ngIf="existingOrApplied.controls['a_OffPaymtInd_PINS'].errors.required">
+                  Answer to Proposed Insured been offered any fee,payment,or incentive in connection with the purchase of this insurance is required.
+                </div>
+              </div>
+            </label>
+            <label class="radioQue">
+                Have you ever sold or transferred a life insurance policy to a life settlement company, other secondary market provider, or any other person?*
+                <br>
+                <input type="radio" name="a_OwnSoldTransLifeInd" formControlName="a_OwnSoldTransLifeInd" value="Yes">Yes
+                <input type="radio" name="a_OwnSoldTransLifeInd" formControlName="a_OwnSoldTransLifeInd" value="No">No
+                <div *ngIf="existingOrApplied.controls['a_OwnSoldTransLifeInd'].invalid &&
+                (existingOrApplied.controls['a_OwnSoldTransLifeInd'].dirty || existingOrApplied.controls['a_OwnSoldTransLifeInd'].touched)"
+                  class="alert">
+                  <div *ngIf="existingOrApplied.controls['a_OwnSoldTransLifeInd'].errors.required">
+                    Answer to sold or transferred a life insurance policy to a life settlement company, other secondary market provider, or any other person is required.
+                  </div>
+                </div>
+              </label>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="existingOrAppliedForm.invalid">invalid form</div>
+<div *ngIf="existingOrAppliedForm.submitted">
+  <p>You have submitted getting started screen with values</p>
+  {{existingOrApplied.value | json}}
+</div>

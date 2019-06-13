@@ -1,0 +1,85 @@
+<div class="pages">
+  <form [formGroup]="owner" #ownerForm="ngForm">
+    <div formArrayName="owners">
+      <button (click)="addOwner()" [disabled]="(owner.get('owners').length)>4">Add</button>
+      <div *ngFor="let ctrl of owner.get('owners').controls; let i=index">
+        <div [formGroupName]="i">
+          <label>
+            Prefix:
+            <select formControlName="prefix">
+              <option *ngFor="let prefix of prefixes" [value]="prefix">{{prefix}}</option>
+            </select>
+
+          </label>
+          <label>
+            First Name:*
+            <input type="text" formControlName="firstName" [id]="'firstName'+i">
+
+            <div *ngIf="ctrl.get('firstName').invalid &&
+                 (ctrl.get('firstName').dirty || ctrl.get('firstName').touched)" class="alert">
+              <div *ngIf="ctrl.get('firstName').errors.required"></div>
+              First Name {{i+1}} is required.
+            </div>
+          </label>
+          <label>
+            Middle Name:
+            <input type="text" formControlName="middleName" maxlength="1">
+          </label>
+          <label>
+            Last Name:*
+            <input type="text" formControlName="lastName">
+
+            <div *ngIf="ctrl.get('lastName').invalid &&
+          (ctrl.get('lastName').dirty || ctrl.get('lastName').touched)" class="alert">
+              <div *ngIf="ctrl.get('lastName').errors.required">
+                Last Name {{i+1}} is required.
+              </div>
+            </div>
+          </label>
+          <label>
+            Permanent Address:*
+            <input type="text" formControlName="permanentAddress">
+
+            <div *ngIf="ctrl.get('permanentAddress').invalid &&
+    (ctrl.get('permanentAddress').dirty || ctrl.get('permanentAddress').touched)" class="alert">
+              <div *ngIf="ctrl.get('permanentAddress').errors.required">
+                Permanent Address {{i+1}} is required.
+              </div>
+            </div>
+          </label>
+          <label>
+            Date Of Birth:*
+            <input type="date" #dob formControlName="dateofBirth" (blur)="validatedate(dob.value)">
+            <div *ngIf="ctrl.get('dateofBirth').invalid &&
+      (ctrl.get('dateofBirth').dirty || ctrl.get('dateofBirth').touched)" class="alert">
+              <div *ngIf="ctrl.get('dateofBirth').errors.required">
+                Date of birth {{i+1}} is required.
+              </div>
+            </div>
+            <div class="alert">{{invalidDate}}</div>
+          </label>
+
+          <label>
+            Social Security Number:*
+            <input type="text" formControlName="ssn">
+            <div *ngIf="ctrl.get('ssn').invalid &&
+      (ctrl.get('ssn').dirty || ctrl.get('ssn').touched)" class="alert">
+              <div *ngIf="ctrl.get('ssn').errors.required">
+                SSN {{i+1}} is required.
+              </div>
+            </div>
+          </label>
+
+          <button (click)="removeOwner(i)" [disabled]="(owner.get('owners').length)==1">Delete</button>
+        </div>
+
+
+      </div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<!--<div *ngIf="ownerForm.submitted">
+  <p>You have submitted Owner screen with values</p>
+  {{owner.value | json}}
+</div>-->
