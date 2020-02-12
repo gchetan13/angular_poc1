@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ScreenServiceService } from './screen-service.service';
+import { ScreenServiceService } from './services/screen-service.service';
 
 describe('ScreenServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

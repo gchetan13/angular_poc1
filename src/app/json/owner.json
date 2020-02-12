@@ -1,0 +1,94 @@
+{
+  "owners": [
+    {
+      "prefix": "",
+      "firstName": "Aman",
+      "middleName": "",
+      "lastName": "Malhotra",
+      "permanentAddress": "Indore",
+      "dateofBirth": "2000-10-10",
+      "ssn": "1212",
+      "id": 1
+    },
+    {
+      "prefix": "",
+      "firstName": "Baman",
+      "middleName": "",
+      "lastName": "Irani",
+      "permanentAddress": "Indore",
+      "dateofBirth": "1998-10-10",
+      "ssn": "1212",
+      "id": 2
+    }
+  ],
+  "getting_started": {
+    "Application_CRDA": "1221-13-21-31-1313C01",
+    "appcompletedinUS": "Yes",
+    "ownerOtherThanPI": "Yes",
+    "product": "BrightHouse Smartcare",
+    "niprNum": "123",
+    "preAmount": null,
+    "faceAmount": null,
+    "illustrationPDF": "No",
+    "premiumMode": "Single Payment"
+  },
+  "proposed_Insured": {
+    "prefix": "",
+    "firstName": "Cheta",
+    "middleName": "",
+    "lastName": "gupta",
+    "permanentAddress": "Indore",
+    "dateofBirth": "2011-10-10",
+    "ssn": "123"
+  },
+  "existingApplied": {
+    "a_InforceNAppliedfor": "No",
+    "a_OffPaymtInd_PINS": "No",
+    "a_OwnSoldTransLifeInd": "Yes"
+  },
+  "premium": {
+    "premium_payors": "Proposed Insured",
+    "paymentMode": "Single Payment"
+  },
+  "gettingStarted_Error": {
+    "premium_payors": "",
+    "paymentMode": ""
+  },
+  "proposed_Insured_Error": {
+    "firstName": "",
+    "lastName": "",
+    "permanentAddress": "",
+    "dateofBirth": "",
+    "ssn": "",
+    "prefix": "",
+    "middleName": ""
+  },
+  "owner_Error": [
+    {
+      "firstName": "",
+      "lastName": "",
+      "permanentAddress": "",
+      "dateofBirth": "",
+      "ssn": "",
+      "prefix": "",
+      "middleName": "",
+      "id": 1
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "permanentAddress": "",
+      "dateofBirth": "",
+      "ssn": "",
+      "prefix": "",
+      "middleName": "",
+      "id": 2
+    }
+  ],
+  "existingApplied_Error": {
+    "a_InforceNAppliedfor": "",
+    "a_OffPaymtInd_PINS": "",
+    "a_OwnSoldTransLifeInd": ""
+  },
+  "premium_Error": {}
+}

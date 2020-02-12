@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnChanges, SimpleChanges, KeyValueDiffer, DoCheck} from '@angular/core';
+import { Component, OnInit, ViewChild, KeyValueDiffer} from '@angular/core';
 import {Screen} from '../screen'
 import {SCREENS} from '../all-screens'
 import { GettingStartedComponent } from './getting-started/getting-started.component';
@@ -12,7 +12,7 @@ import { ExistingAppliedComponent } from './existing-applied/existing-applied.co
   templateUrl: './screens.component.html',
   styleUrls: ['./screens.component.css']
 })
-export class ScreensComponent implements OnInit,OnChanges {
+export class ScreensComponent implements OnInit {
 
  selectedScreen : String;
  differ : KeyValueDiffer<String,Object>;
@@ -28,6 +28,7 @@ export class ScreensComponent implements OnInit,OnChanges {
  private existingAppliedComponent: ExistingAppliedComponent;
 
   PIOtherOwn : boolean;
+  //nextScreen : String;
   screens=SCREENS;
     constructor() { }
 
@@ -35,7 +36,7 @@ export class ScreensComponent implements OnInit,OnChanges {
     this.PIOtherOwn =false;
     this.selectedScreen = "getting-started";
   }
-  ngOnChanges(changes: SimpleChanges): void {
+/*   ngOnChanges(changes: SimpleChanges): void {
    console.log('In ngOnchanges in Screens ............');
    for(let name in changes){
      console.log('name :'+changes[name].currentValue);
@@ -44,7 +45,7 @@ export class ScreensComponent implements OnInit,OnChanges {
      console.log('firstchange :'+changes[name].firstChange);
    }
    
-  }
+  } */
 /*   ngDoCheck(): void {
     console.log('Im Do check  '+this.selectedScreen);
   } */
@@ -54,10 +55,10 @@ export class ScreensComponent implements OnInit,OnChanges {
     this.saveDetails(prev_screen);
   }
   saveDetails(screen : String){
-    if(screen == "getting-started")
+/*     if(screen == "getting-started")
     this.gettingStartedComponent.saveDetails();
     if(screen == "proposed-insured")
-    this.proposedInsuredComponent.saveDetails();
+    this.proposedInsuredComponent.saveDetails(); */
     //console.log('all details saved');
     switch(screen){
       case "getting-started" :   {this.gettingStartedComponent.saveDetails(); break;}
@@ -68,6 +69,7 @@ export class ScreensComponent implements OnInit,OnChanges {
     }
   }
   ownerScreen = new Screen('owner','owner')
+
   IsPIOtherThanOwn(PIOtherOwn : String){
     if(PIOtherOwn == "Yes"){
       this.PIOtherOwn =true; 
@@ -76,9 +78,19 @@ export class ScreensComponent implements OnInit,OnChanges {
       }
     }else{
       this.PIOtherOwn =false;
+     // this.ownerComponent.ownersArray
       if(this.screens.includes(this.ownerScreen))
       this.screens.splice(2,1);
     }
   }
-  
+  changeNextScreen(nextScreen : String){
+    let  prev_screen = this.selectedScreen;
+    this.selectedScreen=nextScreen;
+    this.saveDetails(prev_screen);
+  }
+  changePrevScreen(prevScreen : String){
+    let  prev_screen = this.selectedScreen;
+    this.selectedScreen=prevScreen;
+    this.saveDetails(prev_screen);
+  }
 }

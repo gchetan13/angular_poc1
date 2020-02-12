@@ -9,10 +9,10 @@
 </div>
 <div *ngIf = "selectedScreen">
 <div [ngSwitch] = "selectedScreen">
-<app-getting-started  *ngSwitchCase="'getting-started'" [selectedScreen]="selectedScreen" (PIotherThanOwn)="IsPIOtherThanOwn($event)"></app-getting-started>
-<app-proposed-insured *ngSwitchCase="'proposed-insured'" [selectedScreen]="selectedScreen" ></app-proposed-insured>
-<app-owner *ngSwitchCase="'owner'"></app-owner>
-<app-existing-applied *ngSwitchCase="'existing-applied'"></app-existing-applied>
-<app-premium *ngSwitchCase="'premium'"></app-premium>
+<app-getting-started  *ngSwitchCase="'getting-started'" [selectedScreen]="selectedScreen" (PIotherThanOwn)="IsPIOtherThanOwn($event)" (nextScreen)="changeNextScreen($event)"></app-getting-started>
+<app-proposed-insured *ngSwitchCase="'proposed-insured'" [isOwner]="PIOtherOwn" (prevScreen)="changePrevScreen($event)" (nextScreen)="changeNextScreen($event)"></app-proposed-insured>
+<app-owner *ngSwitchCase="'owner'" (prevScreen)="changePrevScreen($event)" (nextScreen)="changeNextScreen($event)"></app-owner>
+<app-existing-applied *ngSwitchCase="'existing-applied'" [isOwner]="PIOtherOwn" (prevScreen)="changePrevScreen($event)" (nextScreen)="changeNextScreen($event)"></app-existing-applied>
+<app-premium *ngSwitchCase="'premium'" (prevScreen)="changePrevScreen($event)"></app-premium>
 </div>
 </div>

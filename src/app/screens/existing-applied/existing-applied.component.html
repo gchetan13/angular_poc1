@@ -1,4 +1,6 @@
 <div class="pages">
+    <div class="heading">Existing Applied</div>
+    <div class="mandatory">* Fields marked with an asterisk are required</div>
   <form [formGroup]="existingOrApplied" #existingOrAppliedForm="ngForm">
     <div [hidden]="existingOrAppliedForm.submitted">
         <label class="radioQue">
@@ -40,12 +42,19 @@
                   </div>
                 </div>
               </label>
-      <button type="submit">Submit</button>
+      <!-- <button type="submit">Submit</button> -->
+      <button type="button" class="previousButton" (click)="onPrev()">Previous</button>
+      <button type="button" class="nextButton" (click)="onNext()">Next</button>
     </div>
   </form>
 </div>
-<div *ngIf="existingOrAppliedForm.invalid">invalid form</div>
+<div class="errormessages">
+  <ul>{{existingAppliedErrors.a_InforceNAppliedfor}}</ul>
+  <ul>{{existingAppliedErrors.a_OffPaymtInd_PINS}}</ul>
+  <ul>{{existingAppliedErrors.a_OwnSoldTransLifeInd}}</ul>
+</div>
+<!-- <div *ngIf="existingOrAppliedForm.invalid">invalid form</div>
 <div *ngIf="existingOrAppliedForm.submitted">
   <p>You have submitted getting started screen with values</p>
   {{existingOrApplied.value | json}}
-</div>
+</div> -->

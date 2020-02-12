@@ -1,9 +1,12 @@
 <div class="pages">
+  <div class="heading">Getting Started</div>
+  <div class="mandatory">* Fields marked with an asterisk are required</div><br>
   <form [formGroup]="gettingStarted" #gettingStartedForm="ngForm">
     <div [hidden]="gettingStartedForm.submitted">
       <label for="Application_CRDA">
-        Application CRDA:*
-        <input id="Application_CRDA" #AppCRDA [textMask]="{mask:maskAppCRDA,guide:true,keepCharPositions:true}" type="text" (blur)="validateGettingStarted(AppCRDA.value)" formControlName="Application_CRDA">
+        Application CRDA:<span style="color: red; font-weight: bold;vertical-align: top" class="mandatory">*</span>
+        <input id="Application_CRDA" #AppCRDA [textMask]="{mask:maskAppCRDA,guide:true,keepCharPositions:true}"
+          type="text" (blur)="validateGettingStarted(AppCRDA.value)" formControlName="Application_CRDA">
         <!--<div *ngIf="gettingStarted.controls['Application_CRDA'].invalid &&
         (gettingStarted.controls['Application_CRDA'].dirty || gettingStarted.controls['Application_CRDA'].touched)"
           class="alert">
@@ -25,14 +28,16 @@
           <div *ngIf="gettingStarted.controls['appcompletedinUS'].errors.required">
             Answer to Application completed in the United States is missing.
           </div>
-        </div> 
-       </label>
+        </div>
+      </label>
 
       <label class="radioQue">
         Will the Owner of the Policy be someone other than the Proposed Insured?*
         <br>
-        <input #showOwnVal type="radio" name="ownerOtherThanPI" formControlName="ownerOtherThanPI" (change)="showHideOwner(showOwnVal.value)" value="Yes">Yes
-        <input #hideOwnVal type="radio" name="ownerOtherThanPI" formControlName="ownerOtherThanPI" (change)="showHideOwner(hideOwnVal.value)" value="No">No
+        <input #showOwnVal type="radio" name="ownerOtherThanPI" formControlName="ownerOtherThanPI"
+          (change)="showHideOwner(showOwnVal.value)" value="Yes">Yes
+        <input #hideOwnVal type="radio" name="ownerOtherThanPI" formControlName="ownerOtherThanPI"
+          (change)="showHideOwner(hideOwnVal.value)" value="No">No
         <div *ngIf="gettingStarted.controls['ownerOtherThanPI'].invalid &&
         (gettingStarted.controls['ownerOtherThanPI'].dirty || gettingStarted.controls['ownerOtherThanPI'].touched)"
           class="alert">
@@ -61,7 +66,8 @@
           <option *ngFor="let premiumMode of premiumModes" [value]="premiumMode">{{premiumMode}}</option>
         </select>
         <div *ngIf="gettingStarted.controls['premiumMode'].invalid &&
-        (gettingStarted.controls['premiumMode'].dirty || gettingStarted.controls['premiumMode'].touched)" class="alert">
+        (gettingStarted.controls['premiumMode'].dirty || gettingStarted.controls['premiumMode'].touched)"
+          class="alert">
           <div *ngIf="gettingStarted.controls['premiumMode'].errors.required">
             Premium Mode is missing.
           </div>
@@ -70,7 +76,7 @@
 
       <label>
         NIPR Number:*
-        <input type="text" formControlName="niprNum" appOnlyNumber> 
+        <input type="text" formControlName="niprNum" appOnlyNumber>
         <div *ngIf="gettingStarted.controls['niprNum'].invalid &&
          (gettingStarted.controls['niprNum'].dirty || gettingStarted.controls['niprNum'].touched)" class="alert">
           <div *ngIf="gettingStarted.controls['niprNum'].errors.required">
@@ -89,8 +95,10 @@
       <label class="radioQue">
         Is there an Illustration PDF attached with the Application Packet?*
         <br>
-        <input type="radio" name="illustrationPDF" formControlName="illustrationPDF" (change)="showHideAmount($event)" value="Yes">Yes
-        <input type="radio" name="illustrationPDF" formControlName="illustrationPDF" (change)="showHideAmount($event)" value="No">No
+        <input type="radio" name="illustrationPDF" formControlName="illustrationPDF" (change)="showHideAmount($event)"
+          value="Yes">Yes
+        <input type="radio" name="illustrationPDF" formControlName="illustrationPDF" (change)="showHideAmount($event)"
+          value="No">No
         <div *ngIf="gettingStarted.controls['illustrationPDF'].invalid &&
         (gettingStarted.controls['illustrationPDF'].dirty || gettingStarted.controls['illustrationPDF'].touched)"
           class="alert">
@@ -99,20 +107,23 @@
           </div>
         </div>
       </label>
-      <label for="lumpsum" [style.display]="gettingStarted.controls['illustrationPDF'].value == 'Yes' ? 'block' : 'none' ">
+      <label for="lumpsum"
+        [style.display]="gettingStarted.controls['illustrationPDF'].value == 'Yes' ? 'block' : 'none' ">
         Planned First Year Lump Sum:*
-        <input id="lumpsum" appOnlyNumber type="text"  #lumpsum formControlName="lumpsum" (blur)="formateCurrency(lumpsum)">
+        <input id="lumpsum" appOnlyNumber type="text" #lumpsum formControlName="lumpsum"
+          (blur)="formateCurrency(lumpsum)">
         <div *ngIf="gettingStarted.controls['lumpsum']?.invalid &&
-        (gettingStarted.controls['lumpsum'].dirty || gettingStarted.controls['lumpsum'].touched)"
-          class="alert">
+        (gettingStarted.controls['lumpsum'].dirty || gettingStarted.controls['lumpsum'].touched)" class="alert">
           <div *ngIf="gettingStarted.controls['lumpsum'].errors.required">
             Planned First Year Lump Sum Amount is missing.
           </div>
         </div>
       </label>
-      <label for="singlePremium" [style.display]="gettingStarted.controls['illustrationPDF'].value == 'Yes' ? 'block' : 'none' ">
+      <label for="singlePremium"
+        [style.display]="gettingStarted.controls['illustrationPDF'].value == 'Yes' ? 'block' : 'none' ">
         Planned Single Premium:*
-        <input id="singlePremium" #singlePrem appOnlyNumber type="text" formControlName="singlePremium" (blur)="formateCurrency(singlePrem)">
+        <input id="singlePremium" #singlePrem appOnlyNumber type="text" formControlName="singlePremium"
+          (blur)="formateCurrency(singlePrem)">
         <div *ngIf="gettingStarted.controls['singlePremium']?.invalid &&
         (gettingStarted.controls['singlePremium'].dirty || gettingStarted.controls['singlePremium'].touched)"
           class="alert">
@@ -121,10 +132,22 @@
           </div>
         </div>
       </label>
-     
+
     </div>
-    <button type="button" (click)="saveDetails()">Submit</button>
+    <!-- <button type="button" class="" (click)="saveDetails()">Submit</button> -->
+    <button type="button" class="nextButton" (click)="onNext()">Next</button>
   </form>
+</div>
+<div class="errormessages">
+  <ul>{{gettingstartedErrors.Application_CRDA}}</ul>
+  <ul>{{gettingstartedErrors.appcompletedinUS}}</ul>
+  <ul>{{gettingstartedErrors.ownerOtherThanPI}}</ul>
+  <ul>{{gettingstartedErrors.product}}</ul>
+  <ul>{{gettingstartedErrors.niprNum}}</ul>
+  <ul>{{gettingstartedErrors.illustrationPDF}}</ul>
+  <ul>{{gettingstartedErrors.premiumMode}}</ul>
+  <ul>{{gettingstartedErrors.lumpsum}}</ul>
+  <ul>{{gettingstartedErrors.singlePremium}}</ul>
 </div>
 <div *ngIf="gettingStartedForm.invalid">invalid form</div>
 <div *ngIf="gettingStartedForm.submitted">

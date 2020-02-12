@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {Route} from '@angular/router'
 import { AppComponent } from './app.component';
 import { ScreensComponent } from './screens/screens.component';
 import { GettingStartedComponent } from './screens/getting-started/getting-started.component';
@@ -11,7 +12,9 @@ import { ExistingAppliedComponent } from './screens/existing-applied/existing-ap
 import { PremiumComponent } from './screens/premium/premium.component';
 import {TextMaskModule} from 'angular2-text-mask';
 import {CurrencyPipe} from '@angular/common';
-import { OnlyNumberDirective } from './only-number.directive'
+import { OnlyNumberDirective } from './only-number.directive';
+import {ScreenServiceService} from './services/screen-service.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,10 @@ import { OnlyNumberDirective } from './only-number.directive'
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    TextMaskModule
+    TextMaskModule,
+    HttpClientModule
   ],
-  providers: [CurrencyPipe],
+  providers: [CurrencyPipe,ScreenServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

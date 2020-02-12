@@ -1,4 +1,6 @@
 <div class="pages">
+    <div class="heading">Premium</div>
+    <div class="mandatory">* Fields marked with an asterisk are required</div>
   <form [formGroup]="premium" #premiumForm="ngForm">
     <div [hidden]="premiumForm.submitted">
       <label>
@@ -28,7 +30,7 @@
           </div>
         </div>
       </label>
-      <label>
+<!--       <label>
           Method of Premium Collection:* <br>
        <div>   
           <input id="wireTransfer" type="checkbox" value="1" name="wire-transfer"><label for="wireTransfer">Wire Transfer</label>
@@ -41,12 +43,16 @@
           <input id="check" type="checkbox" value="3" name="check">
           <label for="check">Check</label>
         </div>
-      </label>
-      <button type="submit">Submit</button>
+      </label> -->
+      <!-- <button type="submit">Submit</button> -->
+      <button type="submit" class="previousButton" (click)="onPrev()">Previous</button>
     </div>
   </form>
 </div>
-<div *ngIf="premiumForm.invalid">invalid form</div>
+<div class="errormessages">
+  <ul>{{premiumErrors.premium_payors}}</ul>
+  <ul>{{premiumErrors.paymentMode}}</ul>
+</div>
 <div *ngIf="premiumForm.submitted">
   <p>You have submitted getting started screen with values</p>
   {{premium.value | json}}

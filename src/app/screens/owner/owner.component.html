@@ -1,8 +1,10 @@
 <div class="pages">
+    <div class="heading">Owner</div>
+    <div class="mandatory">* Fields marked with an asterisk are required</div>
   <form [formGroup]="owner" #ownerForm="ngForm">
     <div formArrayName="owners">
-      <button (click)="addOwner()" [disabled]="(owner.get('owners').length)>4">Add</button>
-      <div *ngFor="let ctrl of owner.get('owners').controls; let i=index">
+      <button (click)="addOwner()" [disabled]="ownersArray.length>4">Add</button>
+      <div *ngFor="let ctrl of ownersArray.controls; let i=index">
         <div [formGroupName]="i">
           <label>
             Prefix:
@@ -49,14 +51,15 @@
           </label>
           <label>
             Date Of Birth:*
-            <input type="date" #dob formControlName="dateofBirth" (blur)="validatedate(dob.value)">
+            <input type="date" #dob formControlName="dateofBirth" (keyup)="validatedate(dob.value)">
             <div *ngIf="ctrl.get('dateofBirth').invalid &&
       (ctrl.get('dateofBirth').dirty || ctrl.get('dateofBirth').touched)" class="alert">
               <div *ngIf="ctrl.get('dateofBirth').errors.required">
                 Date of birth {{i+1}} is required.
               </div>
+              
             </div>
-            <div class="alert">{{invalidDate}}</div>
+            <div class="alert" >{{invalidDate}}</div>
           </label>
 
           <label>
@@ -70,14 +73,23 @@
             </div>
           </label>
 
-          <button (click)="removeOwner(i)" [disabled]="(owner.get('owners').length)==1">Delete</button>
+          <button (click)="removeOwner(i,ctrl.get('id').value)" [disabled]="(owner.get('owners').length)==1">Delete</button>
         </div>
 
 
       </div>
-      <button type="submit">Submit</button>
+      <!-- <button type="submit">Submit</button> -->
+      <button type="button" class="previousButton" (click)="onPrev()">Previous</button>
+      <button type="button" class="nextButton" (click)="onNext()">Next</button>
     </div>
   </form>
+</div>
+<div class="ownerErrorMessages" *ngFor="let error of ownerErrorsArray">
+<ul>{{error.firstName}}</ul>
+<ul>{{error.lastName}}</ul>
+<ul>{{error.permanentAddress}}</ul>
+<ul>{{error.dateofBirth}}</ul>
+<ul>{{error.ssn}}</ul>
 </div>
 <!--<div *ngIf="ownerForm.submitted">
   <p>You have submitted Owner screen with values</p>

@@ -1,4 +1,6 @@
 <div class="pages">
+    <div class="heading">Porposed Insured</div>
+    <div class="mandatory">* Fields marked with an asterisk are required</div>
   <form [formGroup]="proposedInsured" #proposedInsuredForm="ngForm">
     <div [hidden]="proposedInsuredForm.submitted">
       <label>
@@ -21,7 +23,7 @@
     </label>
       <label>
         Middle Name:
-        <input type="text" formControlName="middleName">
+        <input type="text" formControlName="middleName" maxlength="1">
       </label>
       <label>
         Last Name:*
@@ -48,7 +50,7 @@
     </label>
       <label>
         Date Of Birth:*
-        <input type="text" formControlName="dateofBirth">
+        <input type="date" #dob formControlName="dateofBirth" (keyup)="validatedate(dob.value)">
         <div *ngIf="proposedInsured.controls['dateofBirth'].invalid &&
       (proposedInsured.controls['dateofBirth'].dirty || proposedInsured.controls['dateofBirth'].touched)"
           class="alert">
@@ -56,6 +58,7 @@
             Date of birth is required.
           </div>
         </div>
+        <div class="alert" >{{invalidDate}}</div>
       </label>
 
       <label>
@@ -68,13 +71,21 @@
           </div>
         </div>
       </label>
-      <button type="button" (click)="saveDetails()">Submit</button>
+      <!-- <button type="button" (click)="saveDetails()">Submit</button> -->
+      <button type="button" class="previousButton" (click)="onPrev()">Previous</button>
+      <button type="button" class="nextButton" (click)="onNext()">Next</button>
     </div>
   </form>
 </div>
-
-<div *ngIf="proposedInsuredForm.invalid">invalid form</div>
+<div class="errormessages">
+  <ul>{{proposedInsuredErrors.firstName}}</ul>
+  <ul>{{proposedInsuredErrors.lastName}}</ul>
+  <ul>{{proposedInsuredErrors.permanentAddress}}</ul>
+  <ul>{{proposedInsuredErrors.dateofBirth}}</ul>
+  <ul>{{proposedInsuredErrors.ssn}}</ul>
+</div>
+<!-- <div *ngIf="proposedInsuredForm.invalid">invalid form</div>
 <div *ngIf="proposedInsuredForm.submitted">
   <p>You have submitted Proposed Insured screen with values</p>
   {{proposedInsured.value | json}}
-</div>
+</div> -->
