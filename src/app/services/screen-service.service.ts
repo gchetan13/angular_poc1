@@ -7,7 +7,7 @@ import {Observable} from 'rxjs' ;
 })
 
 export class ScreenServiceService {
-  private baseUrl = 'https://my-json-server.typicode.com/gchetan13/json-server/';
+  private baseUrl = 'https://still-shore-77174.herokuapp.com/';
   constructor(private http: HttpClient) { }
   partialSave(attributes: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, attributes);
