@@ -2,57 +2,68 @@
   "owners": [
     {
       "prefix": "",
-      "firstName": "Aman",
+      "firstName": "",
       "middleName": "",
-      "lastName": "Malhotra",
-      "permanentAddress": "Indore",
-      "dateofBirth": "2000-10-10",
-      "ssn": "1212",
+      "lastName": "",
+      "permanentAddress": "",
+      "dateofBirth": "",
+      "ssn": "",
       "id": 1
     },
     {
       "prefix": "",
-      "firstName": "Baman",
+      "firstName": "",
       "middleName": "",
-      "lastName": "Irani",
-      "permanentAddress": "Indore",
-      "dateofBirth": "1998-10-10",
-      "ssn": "1212",
+      "lastName": "",
+      "permanentAddress": "",
+      "dateofBirth": "",
+      "ssn": "",
       "id": 2
     }
   ],
   "getting_started": {
-    "Application_CRDA": "1221-13-21-31-1313C01",
-    "appcompletedinUS": "Yes",
-    "ownerOtherThanPI": "Yes",
-    "product": "BrightHouse Smartcare",
-    "niprNum": "123",
-    "preAmount": null,
-    "faceAmount": null,
-    "illustrationPDF": "No",
-    "premiumMode": "Single Payment"
+    "Application_CRDA": "",
+    "appcompletedinUS": "",
+    "ownerOtherThanPI": "",
+    "product": "",
+    "niprNum": "",
+    "preAmount": "$",
+    "faceAmount": "$",
+    "illustrationPDF": "",
+    "premiumMode": ""
   },
   "proposed_Insured": {
     "prefix": "",
-    "firstName": "Cheta",
+    "firstName": "",
     "middleName": "",
-    "lastName": "gupta",
-    "permanentAddress": "Indore",
-    "dateofBirth": "2011-10-10",
-    "ssn": "123"
+    "lastName": "",
+    "permanentAddress": "",
+    "dateofBirth": "",
+    "ssn": ""
   },
   "existingApplied": {
-    "a_InforceNAppliedfor": "No",
-    "a_OffPaymtInd_PINS": "No",
-    "a_OwnSoldTransLifeInd": "Yes"
+    "a_InforceNAppliedfor": "",
+    "a_OffPaymtInd_PINS": "",
+    "a_OwnSoldTransLifeInd": ""
   },
   "premium": {
-    "premium_payors": "Proposed Insured",
-    "paymentMode": "Single Payment"
+    "premium_payors": "",
+    "paymentMode": ""
   },
   "gettingStarted_Error": {
     "premium_payors": "",
-    "paymentMode": ""
+    "paymentMode": "",
+    "Application_CRDA": "",
+    "appcompletedinUS": "",
+    "ownerOtherThanPI": "",
+    "product": "",
+    "niprNum": "",
+    "preAmount": "",
+    "faceAmount": "",
+    "illustrationPDF": "",
+    "premiumMode": "",
+    "lumpsum": "",
+    "singlePremium": ""
   },
   "proposed_Insured_Error": {
     "firstName": "",
